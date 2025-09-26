@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>সময় টাইম — Somoy Time</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- OG / SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="সময় টাইম — Somoy Time">
+  <meta property="og:image" content="assets/img/og.png">
+  <meta property="og:url" content="https://somoyt.github.io/">
+  <meta name="description" content="সময় টাইম — সর্বশেষ জাতীয়, আন্তর্জাতিক, খেলা, অর্থনীতি, বিনোদন, মতামত ও প্রযুক্তি সংবাদ।">
+
+  <link rel="icon" href="assets/img/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>window.API_URL = "https://script.google.com/macros/s/AKfycbxkMGLm--5BQgQCFvG40Qs5d2NShHtc9N6LXQuB7o1IVBFZlllNqvjxcXijusWfpVQw/exec";</script>
+
+    <!-- Google AdSense Setup -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+            crossorigin="anonymous"></script>
+    <style>
+      .ads-invisible {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    </style>
+    
+
+  <style>
+    /* Sticky header for homepage */
+    @media (max-width: 768px) {
+      header.site-header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #fff;
+      }
+    }
+  </style>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-row">
+    
+<a class="brand" href="./">
+  <div class="logo">
+    <div class="watch">
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+      <div class="center"></div>
+      <!-- 12 ticks -->
+      <div class="tick" style="transform:translateX(-50%) rotate(0deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(30deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(60deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(90deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(120deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(150deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(180deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(210deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(240deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(270deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(300deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(330deg);"></div>
+    </div>
+    <div class="brand-text">সময় টাইম</div>
+  </div>
+</a>
+
+    <div class="menu-toggle">☰</div>
+      <nav class="nav">
+      <a href="#" data-cat="all" class="active">জাতীয়</a>
+      <a href="#" data-cat="আন্তর্জাতিক">আন্তর্জাতিক</a>
+      <a href="#" data-cat="খেলা">খেলা</a>
+      <a href="#" data-cat="অর্থনীতি">অর্থনীতি</a>
+      <a href="#" data-cat="বিনোদন">বিনোদন</a>
+      <a href="#" data-cat="মতামত">মতামত</a>
+      <a href="#" data-cat="প্রযুক্তি">প্রযুক্তি</a>
+    </nav>
+    <div class="actions">
+      <input id="searchInput" type="search" placeholder="খবর খুঁজুন…">
+      <button id="fontMinus" title="Font smaller">A–</button>
+      <button id="fontPlus" title="Font larger">A+</button>
+      <button id="toggleTheme" title="Dark mode">🌓</button>
+    </div>
+  </div>
+</header>
+
+<!-- Breaking -->
+<section class="breaking-wrap" aria-label="Breaking news">
+  <div class="container">
+    <div class="breaking-title">Breaking:</div>
+    <div id="breaking" class="ticker" role="list"></div>
+  </div>
+</section>
+
+<main class="container main">
+  <!-- HERO: 1 big + 4 small -->
+  <section class="hero">
+    <div id="heroBig" class="hero-big"></div>
+    <div id="heroList" class="hero-list"></div>
+  </section>
+
+  <!-- Top Trending -->
+  <section aria-label="Top Trending">
+    <h2 class="section-title">টপ ট্রেন্ডিং</h2>
+    <div id="trending" class="list-plain"></div>
+  </section>
+
+  <!-- Category sections -->
+  <section id="categories"></section>
+
+  <!-- Latest -->
+  <section aria-label="Latest">
+    <h2 class="section-title">সবশেষ</h2>
+    <div id="latest" class="list-rows"></div>
+  </section>
+
+  <!-- AdSense (invisible placeholders) -->
+  <div class="ads ads-top"></div>
+  <div class="ads ads-middle"></div>
+  <div class="ads ads-bottom"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h4>আমাদের সম্পর্কে</h4>
+      <ul>
+        <li><a href="#">পাঠক পরিচিত</a></li>
+        <li><a href="#">এডিটোরিয়াল নীতি</a></li>
+        <li><a href="#">যোগাযোগ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>নীতিমালা</h4>
+      <ul>
+        <li><a href="#">প্রাইভেসি পলিসি</a></li>
+        <li><a href="#">টার্মস & কন্ডিশনস</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>আরও লিংক</h4>
+      <ul>
+        <li><a href="#">সাইটম্যাপ</a></li>
+        <li><a href="#">Facebook</a> · <a href="#">X</a> · <a href="#">YouTube</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>যোগাযোগ</h4>
+      <p><a href="mailto:contact@example.com">contact@example.com</a></p>
+      <p>© ২০২৫ সময় টাইম</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/script.js"></script>
+
+    <!-- Invisible AdSense Block -->
+    <ins class="adsbygoogle ads-invisible"
+         style="display:block"
+         data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+</body>
+</html>

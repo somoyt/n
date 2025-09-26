@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>খবর — সময় টাইম</title>
+  <link rel="icon" href="assets/img/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>window.API_URL = "https://script.google.com/macros/s/AKfycbxkMGLm--5BQgQCFvG40Qs5d2NShHtc9N6LXQuB7o1IVBFZlllNqvjxcXijusWfpVQw/exec";</script>
+
+
+
+
+  <style>
+    /* Reduced base font size by 20% as requested */
+    html { font-size: 80%; }
+    /* Button styling for back to homepage (colorful) */
+    .btn-back {
+      display: inline-block;
+      padding: 12px 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #FF5F6D, #FFB86B);
+      color: white;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform .15s ease, box-shadow .15s ease;
+      margin: 18px 0;
+    }
+    .btn-back:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+    .btn-back:active { transform: translateY(-1px); }
+    /* Ensure the button container is centered and separated from footer */
+    .back-home-wrap { text-align: center; padding: 20px; }
+  </style>
+
+
+  <style>
+    /* Mobile Optimizations for news detail page */
+    @media (max-width: 768px) {
+      body.detail header.site-header {
+        padding: 8px 10px;
+      }
+      body.detail header.site-header .brand {
+        font-size: 1rem;
+      }
+      body.detail header.site-header nav {
+        display: none;
+      }
+      .article-body {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        padding: 0 12px;
+      }
+      .btn-back {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Reduce category menu text size by 20% in news.html header */
+    header.site-header nav a {
+      font-size: 80% !important;
+    }
+  </style>
+
+
+    <!-- Google AdSense Setup -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+            crossorigin="anonymous"></script>
+    <style>
+      .ads-invisible {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    </style>
+    
+</head>
+<body class="detail" class=\"news-page\">
+<header class="site-header">
+  <div class="container header-row">
+    
+<a class="brand" href="./">
+  <div class="logo">
+    <div class="watch">
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+      <div class="center"></div>
+      <!-- 12 ticks -->
+      <div class="tick" style="transform:translateX(-50%) rotate(0deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(30deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(60deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(90deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(120deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(150deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(180deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(210deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(240deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(270deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(300deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(330deg);"></div>
+    </div>
+    <div class="brand-text">সময় টাইম</div>
+  </div>
+</a>
+
+    <div class="menu-toggle">☰</div>
+      <nav class="nav">
+      <a href="#" data-cat="all" class="active">জাতীয়</a>
+      <a href="#" data-cat="আন্তর্জাতিক">আন্তর্জাতিক</a>
+      <a href="#" data-cat="খেলা">খেলা</a>
+      <a href="#" data-cat="অর্থনীতি">অর্থনীতি</a>
+      <a href="#" data-cat="বিনোদন">বিনোদন</a>
+      <a href="#" data-cat="মতামত">মতামত</a>
+      <a href="#" data-cat="প্রযুক্তি">প্রযুক্তি</a>
+    </nav>
+    <div class="actions">
+      <input id="searchInput" type="search" placeholder="খবর খুঁজুন…">
+      <button id="fontMinus" title="Font smaller">A–</button>
+      <button id="fontPlus" title="Font larger">A+</button>
+      <button id="toggleTheme" title="Dark mode">🌓</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <article id="article" itemscope itemtype="https://schema.org/NewsArticle">
+    <h1 id="title" itemprop="headline">লোড হচ্ছে…</h1>
+    <div class="meta"><span id="cat"></span> • <time id="time" itemprop="datePublished"></time> • <span id="author" itemprop="author"></span></div>
+    <img loading="lazy" id="hero" class="hero" alt="" itemprop="image">
+    <p id="summary" class="summary" itemprop="description"></p>
+    <div id="body" class="body" itemprop="articleBody"></div>
+  </article>
+</main>
+
+<footer class="site-footer">
+</footer>
+
+<script src="assets/js/news.js"></script>
+
+  <!-- Back to Homepage Button (inserted) -->
+  <div class="back-home-wrap">
+    <a class="btn-back" href="index.html" aria-label="Back to Homepage">⟵ হোমপেজে ফিরে যান — সময় টাইম</a>
+  </div>
+
+
+    <!-- Invisible AdSense Block -->
+    <ins class="adsbygoogle ads-invisible"
+         style="display:block"
+         data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    
+</body>
+</html>

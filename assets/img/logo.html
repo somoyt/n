@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>সময় টাইম – Premium Analog Logo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@700&display=swap');
+
+    body{
+      margin:0;
+      font-family: 'Baloo Da 2', 'Noto Sans Bengali', Arial, sans-serif;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      text-align:center;
+    }
+
+    .logo{
+      position:relative;
+      display:inline-block;
+    }
+
+    /* Brand Text */
+    .brand{
+      font-size:72px;
+      font-weight:900;
+      font-family:'Baloo Da 2', cursive;
+      color:#c1171a; /* stylish red text */
+      letter-spacing:1px;
+      line-height:1;
+      position:relative;
+      z-index:2;
+      text-shadow:1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Round Analog Watch Symbol */
+    .watch{
+      width:88px;
+      height:88px;
+      background:radial-gradient(circle, #fff 60%, #000 100%); /* white center, black edge */
+      border:4px solid #000; /* black circle line */
+      border-radius:50%;
+      box-shadow:0 5px 12px rgba(0,0,0,.35), inset 0 -4px 8px rgba(255,255,255,.1);
+      position:absolute;
+      top:-36px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:1;
+      overflow:hidden;
+    }
+
+    /* Clock hands */
+    .hand{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform-origin:bottom center;
+      transform:translate(-50%,-100%) rotate(0deg);
+      border-radius:2px;
+    }
+    .hand.hour{height:22px;width:5px;background:#000;}
+    .hand.minute{height:32px;width:3px;background:#444;}
+    .hand.second{height:38px;width:2px;background:#c1171a;}
+
+    /* Center cap */
+    .center{
+      width:8px;
+      height:8px;
+      background:#000;
+      border-radius:50%;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      z-index:3;
+      border:2px solid #fff;
+    }
+
+    /* Ticks */
+    .tick{
+      position:absolute;
+      width:2px;
+      height:8px;
+      background:#000;
+      top:0;
+      left:50%;
+      transform-origin:center 44px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <!-- Analog Watch Behind Letters -->
+    <div class="watch">
+      <div class="hand hour" id="hour"></div>
+      <div class="hand minute" id="minute"></div>
+      <div class="hand second" id="second"></div>
+      <div class="center"></div>
+      <!-- 12 ticks -->
+      <div class="tick" style="transform:translateX(-50%) rotate(0deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(30deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(60deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(90deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(120deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(150deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(180deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(210deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(240deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(270deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(300deg);"></div>
+      <div class="tick" style="transform:translateX(-50%) rotate(330deg);"></div>
+    </div>
+
+    <!-- Bangla Brand Name Overlapping Watch -->
+    <div class="brand">সময় টাইম</div>
+  </div>
+
+  <script>
+    function updateAnalog(hourEl, minEl, secEl){
+      const now = new Date();
+      const s = now.getSeconds();
+      const m = now.getMinutes() + s/60;
+      const h = (now.getHours()%12) + m/60;
+      hourEl.style.transform = `translate(-50%,-100%) rotate(${h*30}deg)`;
+      minEl.style.transform = `translate(-50%,-100%) rotate(${m*6}deg)`;
+      secEl.style.transform = `translate(-50%,-100%) rotate(${s*6}deg)`;
+    }
+
+    const hour = document.getElementById('hour');
+    const minute = document.getElementById('minute');
+    const second = document.getElementById('second');
+
+    function tick(){
+      updateAnalog(hour, minute, second);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>

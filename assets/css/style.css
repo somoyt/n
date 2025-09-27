@@ -29,7 +29,7 @@ a:hover{text-decoration:underline}
 .ticker::after{content:"";display:inline-block;width:50px}
 .ticker span{display:inline-block;margin-right:18px}
 @keyframes slideLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker .track{display:inline-block;animation:slideLeft 25s linear infinite}
+.ticker .track{display:inline-block;animation:slideLeft 20s linear infinite}
 
 /* Main */
 .main{padding:18px 0}

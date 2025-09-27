@@ -13,7 +13,7 @@ a:hover{text-decoration:underline}
 /* Header */
 .site-header { margin-top:16px; position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:10}
 .header-row{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 0}
-.brand{font-size:18px;white-space:nowrap}
+.brand{font-size:16px;white-space:nowrap}
 .brand .dot{color:var(--brand)}
 .nav{display:flex;gap:12px;flex-wrap:wrap}
 .nav a{padding:4px 0}

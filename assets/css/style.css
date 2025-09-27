@@ -15,7 +15,7 @@ a:hover{text-decoration:underline}
 .header-row{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:10px 0}
 .brand{font-size:20px;white-space:nowrap}
 .brand .dot{color:var(--brand)}
-.nav{display:flex;gap:14px;flex-wrap:wrap}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
 .nav a{padding:4px 0}
 .nav a.active{color:var(--brand);text-decoration:underline}
 .actions{display:flex;gap:8px;align-items:center}
